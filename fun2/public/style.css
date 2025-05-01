@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to top, #ffe5ec, #ffc8dd);
+  font-family: 'Comic Sans MS', cursive;
+  text-align: center;
+}
+
+.message-box {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  color: #d6336c;
+  font-size: 6vw;
+  animation: fadeIn 3s ease-in-out;
+  padding: 20px;
+}
+
+#love-btn {
+  background: linear-gradient(45deg, #ff9aa2, #ffb7b2);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 4.5vw;
+  font-family: 'Comic Sans MS', cursive;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 3s ease-in-out;
+  margin-top: 20px;
+}
+
+#love-btn:hover {
+  background: linear-gradient(45deg, #ffb7b2, #ff9aa2);
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.6);
+}
+
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: pink;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: floatUp 10s infinite ease-in;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 15px rgba(255, 0, 102, 0.5);
+}
+
+@keyframes floatUp {
+  0% { bottom: -100px; opacity: 0; }
+  50% { opacity: 1; }
+  100% { bottom: 110%; opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media screen and (min-width: 600px) {
+  .message-box {
+    font-size: 2rem;
+  }
+
+  #love-btn {
+    font-size: 1.2rem;
+  }
+}
+* {
+  box-sizing: border-box;
+}
