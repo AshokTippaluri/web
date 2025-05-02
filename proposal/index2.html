@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Tara's ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Cursive', sans-serif;
+            background-color: #ffe6e6;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 100px;
+            position: relative;
+            z-index: 2;
+        }
+        .question {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        #noBtn {
+            background-color: #ff9999;
+            color: white;
+            position: absolute;
+        }
+        #message {
+            font-size: 22px;
+            color: #ff4d4d;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        /* Balloon styling */
+        .balloon {
+            width: 40px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: float 5s linear infinite;
+        }
+        .balloon::before {
+            content: "";
+            width: 2px;
+            height: 40px;
+            background-color: black;
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question">Tara's, will you be mine forever? ❤️</p>
+        <div class="buttons">
+            <button id="yesBtn" onclick="showLove()">Yes, forever! ❤️</button>
+            <button id="noBtn" onmouseover="moveNo()">No 😢</button>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById("message").innerText = "You just made my life complete, xxx! I love you forever! ❤️";
+        }
+
+        function moveNo() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            document.getElementById("noBtn").style.left = `${x}px`;
+            document.getElementById("noBtn").style.top = `${y}px`;
+        }
+
+        // Function to create balloons
+        function createBalloon() {
+            const balloon = document.createElement("div");
+            balloon.classList.add("balloon");
+            balloon.style.left = Math.random() * 100 + "vw";
+            balloon.style.backgroundColor = getRandomColor();
+            balloon.style.animationDuration = Math.random() * 3 + 3 + "s"; // Random speed
+            document.body.appendChild(balloon);
+
+            setTimeout(() => {
+                balloon.remove();
+            }, 5000);
+        }
+
+        // Function to get random colors
+        function getRandomColor() {
+            const colors = ["#ff4d4d", "#ff66b2", "#ffcc00", "#66ff66", "#3399ff"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Generate balloons every 800ms
+        setInterval(createBalloon, 800);
+    </script>
+</body>
+</html>
