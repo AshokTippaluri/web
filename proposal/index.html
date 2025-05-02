@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Proposal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff4d4d, #ff9999);
+            font-family: 'Georgia', serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 550px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #b30000;
+            animation: fadeIn 2s ease;
+        }
+        .card h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #cc0000;
+        }
+        .card p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .rose {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('rose.jpg');
+            background-size: cover;
+            animation: fall 10s linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-60px) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="rose-container"></div>
+    <div class="card">
+        <h1>🌹 For My Love 🌹</h1>
+        <p>
+            🌅 In every sunrise, every gentle breeze,<br>
+            ❤️ Your presence brings my heart such perfect ease.<br>
+            🏡 With you, each moment feels like coming home,<br>
+            💞 So tell me, love, will you no longer roam?<br>
+            🤝 Will you stay beside me, hand in loving hand,<br>
+            🌟 And journey through forever in this promised land? 🌹
+        </p>
+    </div>
+    <script>
+        // Improved falling roses effect
+        const roseCount = 30;
+        const roseContainer = document.getElementById('rose-container');
+        for (let i = 0; i < roseCount; i++) {
+            const rose = document.createElement('div');
+            rose.classList.add('rose');
+            // Randomize position, size, delay, and duration
+            rose.style.left = Math.random() * 100 + 'vw';
+            rose.style.top = Math.random() * -150 + 'px';
+            const size = 24 + Math.random() * 24;
+            rose.style.width = size + 'px';
+            rose.style.height = size + 'px';
+            rose.style.animationDelay = (Math.random() * 5) + 's';
+            rose.style.animationDuration = (7 + Math.random() * 6) + 's';
+            rose.style.opacity = (0.5 + Math.random() * 0.5);
+            roseContainer.appendChild(rose);
+        }
+    </script>
+</body>
+</html>
